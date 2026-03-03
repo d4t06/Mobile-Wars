@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MouseEventHandler, ReactNode } from "react";
 
 const classes = {
-  active: "before:shadow-none translate-y-[2px] text-[#cd1818]",
+  active: "before:shadow-none translate-y-[2px] !text-[#cd1818]",
   button__children: " flex space-x-1 items-center justify-center",
 };
 
@@ -114,7 +114,7 @@ export default function Button({
             size,
             colors,
             border,
-            fontWeight,
+            fontWeight: active ? 'semibold' : fontWeight,
             className,
           })} ${active ? classes.active : ""}`}
         >

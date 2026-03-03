@@ -5,8 +5,10 @@ import "./styles.scss";
 import "./theme.css";
 import CompareProvider from "@/stores/CompareContext";
 import AuthProvider from "@/stores/AuthContext";
-import ThemeEffect from "@/layout/_components/ThemeEffect";
+// import ThemeEffect from "@/layout/_components/ThemeEffect";
 import defaultTheme from "tailwindcss/defaultTheme";
+
+import { ThemeProvider } from "next-themes";
 
 const _font = localFont({
   src: "./Comfortaa-VariableFont.ttf",
@@ -14,9 +16,9 @@ const _font = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Dspec Vercel",
+  title: "Dspec",
   description:
-    "I'm Nguyen Huu Dat - a final-year Software Engineering student at Can Tho University with a strong passion for web technologies seeking an job opportunity.",
+    "Hi!, I'm Nguyen Huu Dat, a fresher software engineering and I'm seeking an job opportunity.",
   verification: {
     google: "Zr0gom2JXEgWZu3IFSKVXYDqC885w4kSH7cHdQZyaqA",
   },
@@ -36,14 +38,16 @@ export default async function RootLayout({
             _font.style.fontFamily + "," + defaultTheme.fontFamily.sans.join(","),
         }}
       >
-        <AuthProvider>
-          <CompareProvider>
-            {children}
-            <div id="portals"></div>
-          </CompareProvider>
-        </AuthProvider>
+        <ThemeProvider attribute="class">
+          <AuthProvider>
+            <CompareProvider>
+              {children}
+              <div id="portals"></div>
+            </CompareProvider>
+          </AuthProvider>
 
-        <ThemeEffect />
+          {/*<ThemeEffect />*/}
+        </ThemeProvider>
       </body>
     </html>
   );

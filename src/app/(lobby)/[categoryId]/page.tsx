@@ -105,7 +105,7 @@ async function BrandListServerSide({
             colors={"second"}
             size={"clear"}
             active={!rest.brand_id}
-            className="py-1 px-3"
+            className="py-2 px-3"
           >
             All
           </Button>
@@ -130,7 +130,7 @@ async function BrandListServerSide({
                 colors={"second"}
                 size={"clear"}
                 active={rest.brand_id?.includes(b.id + "")}
-                className="py-1 px-3"
+                className="py-2 px-3"
               >
                 {b.brand_name}
               </Button>
@@ -152,7 +152,7 @@ async function BrandListServerSide({
             colors={"second"}
             size={"clear"}
             active={!rest.tag_id}
-            className="py-1 px-3"
+            className="py-2 px-3"
           >
             All
           </Button>
@@ -177,7 +177,7 @@ async function BrandListServerSide({
                 active={rest.tag_id?.includes(t.id + "")}
                 colors={"second"}
                 size={"clear"}
-                className="py-1 px-3"
+                className="py-2 px-3"
               >
                 <TagIcon className="w-5" />
                 <span>{t.name}</span>

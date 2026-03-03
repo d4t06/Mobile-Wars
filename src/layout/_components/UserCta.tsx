@@ -19,27 +19,29 @@ import {
 } from "@/components/popup";
 import { MyImage } from "@/components";
 import { HeartIcon } from "@heroicons/react/16/solid";
-import { setLocalStorage } from "@/utils/appHelper";
+// import { setLocalStorage } from "@/utils/appHelper";
 import { moonIcon, sunIcon } from "../../../public/icon";
 import { useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 
 export default function UserCta() {
   const { data: session } = useSession();
+  const { setTheme, theme } = useTheme();
 
   const modalRef = useRef<ModalRef>(null);
   const triggerRef = useRef<TriggerRef>(null);
 
   const router = useRouter();
 
-  const toggleDarkMode = (toggle: boolean) => {
-    if (toggle) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
+  // const toggleDarkMode = (toggle: boolean) => {
+  //   if (toggle) {
+  //     document.documentElement.classList.add("dark");
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //   }
 
-    setLocalStorage("dark", toggle);
-  };
+  //   setLocalStorage("dark", toggle);
+  // };
 
   const handleNavigate = (path: string) => {
     triggerRef.current?.close();
@@ -86,20 +88,12 @@ export default function UserCta() {
 
             <VerticalMenu dismiss={false} className="[&_button]:rounded-md">
               <button
-                onClick={() => toggleDarkMode(true)}
-                className="sun hover:text-red-500"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                className="hover:text-red-500"
               >
-                {sunIcon}
+                {theme === "light" ? sunIcon : moonIcon}
 
-                <span>Light</span>
-              </button>
-
-              <button
-                onClick={() => toggleDarkMode(false)}
-                className="moon hover:text-red-500"
-              >
-                {moonIcon}
-                <span>Dark</span>
+                <span>{theme === "light" ? "Light" : "Dark"}</span>
               </button>
 
               {session && (

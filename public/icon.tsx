@@ -2,6 +2,7 @@ export const sunIcon = (
   <svg
     viewBox="0 0 24 24"
     fill="none"
+    style={{color: '#ffdd40'}}
     xmlns="http://www.w3.org/2000/svg"
     className="w-full"
   >
@@ -20,6 +21,7 @@ export const moonIcon = (
     viewBox="0 0 24 24"
     fill="currentColor"
     className="w-full"
+    style={{color: '#8a7f8d'}}
   >
     <path
       fillRule="evenodd"

@@ -16,7 +16,7 @@
   }
 
   .tag-item {
-    @apply flex text-xs space-x-1 font-medium bg-[--a-5-cl] dark:bg-slate-600 rounded-md py-0.5 px-1.5;
+    @apply flex text-xs space-x-1 font-semibold bg-[--a-5-cl] dark:bg-slate-600 rounded-md py-1 px-2;
   }
 
   .login-form {
@@ -52,29 +52,6 @@ a[aria-disabled="true"],
 
 .before::before {
   content: "";
-}
-
-/*label {
-  color: #666;
-}
-*/
-html .moon {
-  display: none;
-}
-
-.moon svg {
-  color: #8a7f8d;
-}
-.sun svg {
-  color: #ffdd40;
-}
-
-html.dark .sun {
-  display: none;
-}
-
-html.dark .moon {
-  display: inline-flex;
 }
 
 .popup-shadow {
