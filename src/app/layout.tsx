@@ -30,9 +30,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className="transition-colors bg-white dark:bg-slate-800 dark:text-white"
+        className="bg-white text-black dark:bg-slate-800 dark:text-white"
         style={{
           fontFamily:
             _font.style.fontFamily + "," + defaultTheme.fontFamily.sans.join(","),
@@ -40,13 +40,11 @@ export default async function RootLayout({
       >
         <ThemeProvider attribute="class">
           <AuthProvider>
-            <CompareProvider>
-              {children}
-              <div id="portals"></div>
-            </CompareProvider>
+            <CompareProvider>{children}</CompareProvider>
           </AuthProvider>
 
           {/*<ThemeEffect />*/}
+          <div id="portals"></div>
         </ThemeProvider>
       </body>
     </html>

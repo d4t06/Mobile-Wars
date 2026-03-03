@@ -5,7 +5,7 @@ import SpecificationSection from "./_components/SpecificationSection";
 import NoProduct from "@/components/NoProduct";
 import { getAllProducts } from "@/libs/getAllProducts";
 import DescriptionSection from "./_components/DesctiptionSection";
-import CommentSection from "./_components/CommentSection";
+// import CommentSection from "./_components/CommentSection";
 import MagnifierProvider from "@/stores/MagnifierContext";
 
 export const revalidate = 86400;
@@ -79,7 +79,7 @@ export default async function ProductDetailPage({ params: { productId } }: Param
           </div>
         </div>
 
-        <CommentSection product={product} />
+        {/*<CommentSection product={product} />*/}
       </MagnifierProvider>
     </>
   );

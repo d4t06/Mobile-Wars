@@ -6,7 +6,7 @@ import {
   ArrowRightStartOnRectangleIcon,
 } from "@heroicons/react/24/outline";
 import { signOut, useSession } from "next-auth/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ModalRef, Modal } from "@/components/modal";
 import ConfirmModal from "@/components/modal/Confirm";
 import {
@@ -28,6 +28,8 @@ export default function UserCta() {
   const { data: session } = useSession();
   const { setTheme, theme } = useTheme();
 
+  const [isMount, setIsMount] = useState(false);
+
   const modalRef = useRef<ModalRef>(null);
   const triggerRef = useRef<TriggerRef>(null);
 
@@ -48,10 +50,21 @@ export default function UserCta() {
     router.push(path);
   };
 
+  useEffect(() => {
+    if (!isMount) setIsMount(true);
+  }, []);
+
+  if (!isMount)
+    return (
+      <MyImage
+        className="rounded-full"
+        src={session?.user ? "/meo_vo_tri.png" : "/cho_vo_tri.jpg"}
+        height={40}
+        width={40}
+      />
+    );
   return (
     <>
-      {/*<div className={classes.container}>*/}
-
       <MyPopup>
         <MyPopupTrigger ref={triggerRef} className="flex items-center">
           <button className="flex hover:brightness-90">
